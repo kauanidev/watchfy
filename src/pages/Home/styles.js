@@ -24,7 +24,7 @@ export const MoviesList = styled.section`
 
   > div {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(217px, 1fr));
     gap: 24px;
   }
 

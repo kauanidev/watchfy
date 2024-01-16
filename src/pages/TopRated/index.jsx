@@ -1,11 +1,10 @@
 import axios from "axios";
-import { Highlight } from "../../components/Highlight";
 import { MovieCard } from "../../components/MovieCard";
 import { Sidebar } from "../../components/Sidebar";
 import { Container, Content, MoviesList } from "./styles";
 import { useEffect, useState } from "react";
 
-export const Home = () => {
+export const TopRated = () => {
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([]);
 
@@ -16,6 +15,14 @@ export const Home = () => {
     },
   };
 
+  const getTopRated = async () => {
+    const { data } = await axios.get(
+      "https://api.themoviedb.org/3/movie/top_rated?language=pt-BR",
+      axiosConfig
+    );
+    setMovies(data.results);
+  };
+
   const getGenres = async () => {
     const { data } = await axios.get(
       "https://api.themoviedb.org/3/genre/movie/list?language=pt-BR",
@@ -24,20 +31,8 @@ export const Home = () => {
     setGenres(data.genres);
   };
 
-  const getNowPlaying = async () => {
-    const { data } = await axios.get(
-      "https://api.themoviedb.org/3/movie/now_playing?language=pt-BR",
-      axiosConfig
-    );
-    setMovies(data.results);
-  };
-
-  const randomIndex = Math.floor(Math.random() * movies.length);
-
-  const randomMovie = movies[randomIndex];
-
   useEffect(() => {
-    getNowPlaying();
+    getTopRated();
     getGenres();
   }, []);
 
@@ -45,9 +40,8 @@ export const Home = () => {
     <Container>
       <Sidebar />
       <Content>
-        {!!randomMovie && <Highlight movie={randomMovie} genres={genres} />}
         <MoviesList className="container">
-          <h2>Novidades</h2>
+          <h2>Mais votados</h2>
           <div>
             {movies.map((movie) => {
               return <MovieCard key={movie.id} movie={movie} genres={genres} />;

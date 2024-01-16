@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  background: url(/images/movie1.jpeg) no-repeat center/cover;
+export const Container = styled.a`
+  background: url(${({ posterUrl }) => posterUrl}) no-repeat center/cover;
   width: 100%;
   height: 30rem;
   border-radius: 20px;
@@ -11,6 +11,7 @@ export const Container = styled.div`
   align-items: flex-end;
   cursor: pointer;
   transition: 0.5s;
+  text-decoration: none;
 
   > div {
     opacity: 0.95;
@@ -26,6 +27,10 @@ export const Container = styled.div`
 
     > p {
       font-weight: 600;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
     }
 
     > span {

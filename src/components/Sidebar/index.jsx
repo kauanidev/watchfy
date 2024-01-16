@@ -1,27 +1,17 @@
 import { useLocation } from "react-router-dom";
 import { Container, NavItem } from "./styles";
-import { TbCalendarTime, TbHeart, TbMovie, TbTrendingUp } from "react-icons/tb";
+import { TbMovie, TbTrendingUp } from "react-icons/tb";
 
 const navItems = [
   {
     icon: <TbMovie />,
-    title: "Home",
+    title: "Início",
     to: "/",
   },
   {
     icon: <TbTrendingUp />,
-    title: "Trending",
-    to: "/trending",
-  },
-  {
-    icon: <TbHeart />,
-    title: "Favourites",
-    to: "/favourites",
-  },
-  {
-    icon: <TbCalendarTime />,
-    title: "Coming soon",
-    to: "/coming-soon",
+    title: "Mais votados",
+    to: "/top-rated",
   },
 ];
 

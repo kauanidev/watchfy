@@ -1,7 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background: url("/images/banner.png") no-repeat center/cover;
+  background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    url(${({ posterUrl }) => posterUrl}) no-repeat center/cover;
   height: 450px;
   display: flex;
   flex-direction: column;
@@ -18,5 +23,16 @@ export const Container = styled.div`
     font-size: 1.4rem;
     margin-top: 15px;
     margin-bottom: 40px;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 3.2rem;
+      line-height: 38px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
   }
 `;

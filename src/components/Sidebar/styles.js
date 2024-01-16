@@ -20,6 +20,49 @@ export const Container = styled.aside`
     flex-direction: column;
     gap: 3rem;
   }
+
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    background: rgba(15, 15, 14, 0.7);
+    backdrop-filter: blur(5px);
+
+    > nav {
+      flex-direction: row;
+      gap: 2rem;
+    }
+
+    > div {
+      margin-bottom: 0;
+      font-size: 1.2rem;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  @media (max-width: 350px) {
+    padding: 2rem 1rem;
+
+    div {
+      font-size: 0.9rem;
+
+      img {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
 `;
 
 export const NavItem = styled(Link)`
@@ -39,4 +82,13 @@ export const NavItem = styled(Link)`
       font-weight: 700;
       color: ${theme.white};
     `}
+
+  @media(max-width: 500px) {
+    font-size: 1.2rem;
+    gap: 0.5rem;
+
+    > svg {
+      font-size: 2rem;
+    }
+  }
 `;

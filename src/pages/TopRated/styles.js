@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const Container = styled.main`
   display: flex;
+
+  @media (max-width: 768px) {
+    margin-top: 6rem;
+  }
 `;
 
 export const Content = styled.section`
@@ -17,7 +21,7 @@ export const MoviesList = styled.section`
 
   > div {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(217px, 1fr));
     gap: 24px;
   }
 
